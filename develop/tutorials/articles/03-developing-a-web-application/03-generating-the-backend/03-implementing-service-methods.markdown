@@ -186,11 +186,9 @@ Do so now by following these steps:
         public Entry deleteEntry (long entryId, ServiceContext serviceContext)
             throws PortalException {
 
-            Entry entry = getEntry(entryId);
+            Entry removed = entryPersistence.remove(entryId);
 
-            entry = deleteEntry(entryId);
-
-            return entry;
+            return removed;
         }
 	
     This method retrieves the `entry` object defined by `entryId`, deletes it
